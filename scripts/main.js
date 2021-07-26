@@ -1,4 +1,3 @@
-console.log(computerPlay());
 //generete computer's move
 function computerPlay(){
     let move = Math.floor(Math.random() * 3);
@@ -14,7 +13,6 @@ function computerPlay(){
 
 //compare moves to identify winner of the round
 function playRound(playerSel, computerSel){
-    playerSel = capitilize(playerSel);
     let result = "";
     if(playerSel === computerSel){
         result = "Draw";
@@ -56,3 +54,30 @@ function capitilize(str){
     return str;
 }
 //create a game that consists of 5 rounds
+function game(){
+    let wins = 0;
+    let draws = 0;
+    let loses = 0;
+    let playerMove = "";
+    let computerMove = "";
+    let roundResult = "";
+    for(let round = 0; round < 5; round++){
+        playerMove = prompt("Your Move:");
+        playerMove = capitilize(playerMove);
+        computerMove = computerPlay();
+        roundResult = playRound(playerMove, computerMove);
+        if(roundResult === "Win"){
+            wins++;
+            console.log(`You Win! ${playerMove} beats ${computerMove}`);
+        }
+        else if(roundResult === "Lose"){
+            loses++;
+            console.log(`You Lose! ${computerMove} beats ${playerMove}`);
+        }
+        else{
+            draws++;
+            console.log("It's a draw!");
+        }
+    }
+    console.log(`Game Over! You Won ${wins} games, You lost ${loses} games and there were ${draws} draws\.`);
+}
