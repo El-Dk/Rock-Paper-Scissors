@@ -14,7 +14,6 @@ function computerPlay(){
 //compare moves to identify winner of the round
 function playRound(playerSel){
     const para = document.createElement('p');
-    const score = document.createElement('p');
     let computerSel = computerPlay();
     let result = "";
     resultDiv.innerHTML = "";
@@ -57,10 +56,12 @@ function playRound(playerSel){
                 }
         }
     }
-    score.innerHTML = `<label>Wins: </label><h1>${wins}</h1> <label>Loses: </label>${loses} <label>Draws: </label>${draws}`;
+    score.innerHTML = `<label>Wins: </label>${wins} <label>Loses: </label>${loses} <label>Draws: </label>${draws}`;
+    score.classList.add('scoreDiv');
     para.textContent = result;
     resultDiv.appendChild(score);
     resultDiv.appendChild(para);
+
     if(roundsPlayed === numRounds){
         endGame();
     }
@@ -69,8 +70,15 @@ function playRound(playerSel){
 function endGame(){
     const para = document.createElement('p');
     const playAgain = document.createElement('button');
-
-    para.textContent = `Game Over! You Won ${wins} games, You lost ${loses} games and there were ${draws} draws\.`
+    if(wins === loses){
+        para.textContent = `Game Over! It was a Draw!`;
+    }
+    else if(wins > loses){
+        para.textContent = `Game Over! You Won!`;
+    }
+    else{
+        para.textContent = `Game Over! You Lost!`;
+    }
     playAgain.textContent = "Play Again";
     
     playAgain.addEventListener("click", reset);
@@ -78,9 +86,9 @@ function endGame(){
     resultDiv.appendChild(para);
     resultDiv.appendChild(playAgain);
 
-    rock.disabled = false;
-    paper.disabled = false;
-    scissors.disabled = false;
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
 }
 
 function reset(){
@@ -97,6 +105,7 @@ function reset(){
     loses = 0;
     roundsPlayed = 0;
     numRounds = Number(rounds.value);
+
 }
 function startGame(){
     if(!Number(rounds.value)){
@@ -117,6 +126,9 @@ function startGame(){
         loses = 0;
         numRounds = Number(rounds.value);
         roundsPlayed = 0;
+        score.innerHTML = `<label>Wins: </label>${wins} <label>Loses: </label>${loses} <label>Draws: </label>${draws}`;
+        score.classList.add('scoreDiv');
+        resultDiv.appendChild(score);
     }
 }
 const rounds = document.querySelector('#rounds');
@@ -127,6 +139,7 @@ const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 
 const resultDiv = document.querySelector('#gameResult');
+const score = document.createElement('p');
 
 let wins = 0;
 let draws = 0;
