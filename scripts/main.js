@@ -12,72 +12,137 @@ function computerPlay(){
 }
 
 //compare moves to identify winner of the round
-function playRound(playerSel, computerSel){
+function playRound(playerSel){
+    const para = document.createElement('p');
+    const score = document.createElement('p');
+    let computerSel = computerPlay();
     let result = "";
+    resultDiv.innerHTML = "";
+    roundsPlayed++;
+
     if(playerSel === computerSel){
-        result = "Draw";
+        result = "It's a draw!";
+        draws++;
     }
     else{
         switch(playerSel){
             case "Rock":
                 if(computerSel === "Paper"){
-                    result = "Lose";
+                    result = `You Lose! ${computerSel} beats ${playerSel}`;
+                    loses++;
                 }
                 else{
-                    result = "Win";
+                    result = `You Win! ${playerSel} beats ${computerSel}`;
+                    wins++;
                 }
                 break;
             case "Paper":
                 if(computerSel === "Scissors"){
-                    result = "Lose";
+                    result = `You Lose! ${computerSel} beat ${playerSel}`;
+                    loses++;
                 }
                 else{
-                    result = "Win";
+                    result = `You Win! ${playerSel} beats ${computerSel}`;
+                    wins++;
                 }
                 break;
             default:
                 if(computerSel === "Rock"){
-                    result = "Lose";
+                    result = `You Lose! ${computerSel} beats ${playerSel}`;
+                    loses++;
                 }
                 else{
-                    result = "Win";
+                    result = `You Win! ${playerSel} beat ${computerSel}`;
+                    wins++;
                 }
         }
     }
-    return result;
-    
-}
-//function to capitile player's input so it will be in a unique format
-function capitilize(str){
-    str = str.trim();
-    str = str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-    return str;
-}
-//create a game that consists of 5 rounds
-function game(){
-    let wins = 0;
-    let draws = 0;
-    let loses = 0;
-    let playerMove = "";
-    let computerMove = "";
-    let roundResult = "";
-    for(let round = 0; round < 5; round++){
-        playerMove = prompt("Your Move:");
-        playerMove = capitilize(playerMove);
-        computerMove = computerPlay();
-        roundResult = playRound(playerMove, computerMove);
-        if(roundResult === "Win"){
-            wins++;
-            console.log(`You Win! ${playerMove} beats ${computerMove}`);
-        }
-        else if(roundResult === "Lose"){
-            loses++;
-            console.log(`You Lose! ${computerMove} beats ${playerMove}`);
-        }
-        else{
-            draws++;
-            console.log("It's a draw!");
-        }
+    score.innerHTML = `<label>Wins: </label><h1>${wins}</h1> <label>Loses: </label>${loses} <label>Draws: </label>${draws}`;
+    para.textContent = result;
+    resultDiv.appendChild(score);
+    resultDiv.appendChild(para);
+    if(roundsPlayed === numRounds){
+        endGame();
     }
-    console.log(`Game Over! You Won ${wins} games, You lost ${loses} games and there were ${draws} draws\.`);
 }
+
+function endGame(){
+    const para = document.createElement('p');
+    const playAgain = document.createElement('button');
+
+    para.textContent = `Game Over! You Won ${wins} games, You lost ${loses} games and there were ${draws} draws\.`
+    playAgain.textContent = "Play Again";
+    
+    playAgain.addEventListener("click", reset);
+
+    resultDiv.appendChild(para);
+    resultDiv.appendChild(playAgain);
+
+    rock.disabled = false;
+    paper.disabled = false;
+    scissors.disabled = false;
+}
+
+function reset(){
+    playGame.disabled = false;
+    rounds.disabled = false;
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
+
+    resultDiv.innerHTML = "";
+
+    wins = 0;
+    draws = 0;
+    loses = 0;
+    roundsPlayed = 0;
+    numRounds = Number(rounds.value);
+}
+function startGame(){
+    if(!Number(rounds.value)){
+        alert("Number of rounds must be a NUMBER! (1 - 10)");
+    }
+    else if(Number(rounds.value) < 1 || Number(rounds.value > 10)){
+        alert("Set the number of rounds between 1 - 10");
+    }
+    else{
+        playGame.disabled = true;
+        rounds.disabled = true;
+        rock.disabled = false;
+        paper.disabled = false;
+        scissors.disabled = false;
+
+        wins = 0;
+        draws = 0;
+        loses = 0;
+        numRounds = Number(rounds.value);
+        roundsPlayed = 0;
+    }
+}
+const rounds = document.querySelector('#rounds');
+const playGame = document.querySelector('#playGame');
+
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+
+const resultDiv = document.querySelector('#gameResult');
+
+let wins = 0;
+let draws = 0;
+let loses = 0;
+let roundsPlayed = 0;
+let numRounds; 
+
+playGame.addEventListener('click', startGame);
+window.addEventListener('beforeunload', reset);
+
+rock.addEventListener('click', () =>{
+    playRound(rock.value)
+})
+paper.addEventListener('click', () =>{
+    playRound(paper.value)
+})
+scissors.addEventListener('click', () =>{
+    playRound(scissors.value)
+})
