@@ -1,3 +1,6 @@
+html{
+    font-size: 20px;
+}
 body{
     background-color: #f3be2b;
     display: flex;
@@ -12,17 +15,17 @@ header{
     background-color: #fcba03;
     width: 100%;
     margin: -10px -10px 0px -10px;
-    padding: 30px 30px 30px 30px;
+    padding: 1.2rem 1.5rem 1.2rem 1.5rem;
     flex: 0 1 auto;
 }
 h1{
-    margin: 20px auto 30px auto;
+    margin: 1rem auto 1.5rem auto;
     text-align: center;    
-    font-size: 40px;
+    font-size: 2rem;
 }
 main{
     margin-top: 0px;
-    margin-bottom: 80px;
+    margin-bottom: 4rem;
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
@@ -37,50 +40,50 @@ main{
     width: auto;
     align-items: center;
     justify-items: right;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 #roundsLabel{
     display: flex;
-    font-size: 18px;
+    font-size: 0.9rem;
     margin-right: 15px;
 }
 #rounds{
     display: flex;
-    width: 50px;
+    width: 2.5rem;
     text-align: center;
     border: none;
-    font-size: 16px;
+    font-size: 0.8rem;
 }
 #playGame{
     margin-left: 8em;
     display: flex;
-    width: 108px;
-    height: 36px;
+    width: 5.4rem;
+    height: 1.8rem;
     text-align: center;
     justify-content: center;
     align-content: center;
-    font-size: 18px;
+    font-size: 0.9rem;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
-    padding-top: 5px;
-    padding-bottom: 9px;
+    padding-top: 0.4rem;
+    padding-bottom: 0.45rem;
 }
 .choiceBtn{
-    padding: 10px auto 10px auto;
+    padding: 0.5rem auto 0.5rem auto;
     background-color: white;
-    height: 200px;
-    width: 200px;
+    height: 10rem;
+    width: 10rem;
     border-radius: 50%;
     border: 1px solid black;
     box-shadow: 5px 5px black;
-    margin: auto 20px 20px 20px;
+    margin: auto 1rem 1rem 1rem;
 }
 .choiceBtn:active{
     background-color: black;
 }
 .choiceImg{
     width: auto;
-    height: 100px;
+    height: 5rem;
 }
 #footer{
     display: flex;
@@ -90,7 +93,7 @@ main{
     align-items: center;
     background-color: #fcba03;
     width: 100%;
-    margin: -100px -10px 10px -10px;
+    margin: -5rem -10px 10px -10px;
     padding: 30px 30px 30px 30px;
     margin-bottom: -10px;
     bottom: 0%;
@@ -99,22 +102,23 @@ main{
     height: 80px;
 }
 #gameResult button{
-    width: 108px;
-    height: 36px;
+    width: 5.4rem;
+    height: 1.8rem;
     text-align: center;
     justify-content: center;
     align-content: center;
-    font-size: 18px;
+    font-size: 0.9rem;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
     padding-top: 5px;
     padding-bottom: 9px;
-    margin-top: 20px;
+    margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
 }
 #gameResult{
     display: flex;
     flex-direction: column;
+    padding-bottom: 140px;
 }
 #gameResult p{
     font-style: italic;
@@ -127,7 +131,7 @@ main{
     margin-left: 30px;
 }
 #scoreDiv{
-    font-size: 25px;
+    font-size: 1.25rem;
 }
 .wins{
     color: green;
@@ -139,8 +143,8 @@ main{
     color: black;
 }
 .gameOver{
-    font-size: 20px;
+    font-size: 1rem;
     background-color: black;
     color: white;
-    line-height: 40px;
+    line-height: 2rem;
 }
