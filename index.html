@@ -12,31 +12,34 @@
         <header id="header">
             <h1>Rock, Paper, Scissors</h1>
         </header>
-        <div id="setDiv">
-            <form id="setForm" target="">
-                <label for="rounds" id="roundLabel">
+        <main>
+            <div id="setDiv">
+                <label for="rounds" id="roundsLabel">
                     Number of rounds:
                 </label>
                 <input id="rounds" name="rounds" type="number" min="1" max="10" value="5">
-            </form>
                 <button id="playGame">Play</button> 
-        </div>
-        <div id="userChoice">
-            <button id="rock" class="choiceBtn" value="Rock" disabled>
-                <img class="choiceImg" src="images/rock.png" alt="Rock">
-            </button>
-            <button id="paper" class="choiceBtn" value="Paper" disabled>
-                <img class="choiceImg" src="images/paper.png" alt="Paper">
-            </button>
-            <button id="scissors" class="choiceBtn" value="Scissors" disabled>
-                <img class="choiceImg" src="images/scissors.png" alt="Scissors">
-            </button>
-        </div>
-        <div id="gameResult">
-        </div>
-        <script>
-            //game();
-       
-       </script>
+            </div>
+            <div id="userChoice">
+                <button id="rock" class="choiceBtn" value="Rock" disabled>
+                    <img class="choiceImg" src="images/rock.png" alt="Rock">
+                </button>
+                
+                <button id="paper" class="choiceBtn" value="Paper" disabled>
+                    <img class="choiceImg" src="images/paper.png" alt="Paper">
+                </button>
+                
+                <button id="scissors" class="choiceBtn" value="Scscissors" disabled>
+                    <img class="choiceImg" src="images/scissors.png" alt="Scissors">
+                </button>
+            </div>
+            <div id="gameResult">
+            </div>
+        </main>
+        <footer id="footer">
+            <div id="contactInfo">
+                <a href="https://github.com/El-Dk"><img src="images/github.png"></a> 
+            </div>
+        </footer>
     </body>
 </html>

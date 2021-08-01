@@ -28,35 +28,42 @@ function playRound(playerSel){
             case "Rock":
                 if(computerSel === "Paper"){
                     result = `You Lose! ${computerSel} beats ${playerSel}`;
+                    para.classList.add('loses');
                     loses++;
                 }
                 else{
                     result = `You Win! ${playerSel} beats ${computerSel}`;
+                    para.classList.add('wins');
                     wins++;
                 }
                 break;
             case "Paper":
                 if(computerSel === "Scissors"){
                     result = `You Lose! ${computerSel} beat ${playerSel}`;
+                    para.classList.add('loses');
                     loses++;
                 }
                 else{
                     result = `You Win! ${playerSel} beats ${computerSel}`;
+                    para.classList.add('wins');
                     wins++;
                 }
                 break;
             default:
                 if(computerSel === "Rock"){
                     result = `You Lose! ${computerSel} beats ${playerSel}`;
+                    para.classList.add('loses');
                     loses++;
                 }
                 else{
                     result = `You Win! ${playerSel} beat ${computerSel}`;
+                    para.classList.add('wins');
                     wins++;
                 }
         }
     }
-    score.innerHTML = `<label>Wins: </label>${wins} <label>Loses: </label>${loses} <label>Draws: </label>${draws}`;
+    score.innerHTML = `<label class="wins">Wins: ${wins}</label> <label class="loses">
+                Loses: ${loses}</label> <label class="draws">Draws: ${draws}</label>`;
     score.classList.add('scoreDiv');
     para.textContent = result;
     resultDiv.appendChild(score);
@@ -70,6 +77,7 @@ function playRound(playerSel){
 function endGame(){
     const para = document.createElement('p');
     const playAgain = document.createElement('button');
+    para.classList.add('gameOver');
     if(wins === loses){
         para.textContent = `Game Over! It was a Draw!`;
     }
@@ -98,6 +106,7 @@ function reset(){
     paper.disabled = true;
     scissors.disabled = true;
 
+    rounds.focus();
     resultDiv.innerHTML = "";
 
     wins = 0;
@@ -110,9 +119,11 @@ function reset(){
 function startGame(){
     if(!Number(rounds.value)){
         alert("Number of rounds must be a NUMBER! (1 - 10)");
+        rounds.focus();
     }
     else if(Number(rounds.value) < 1 || Number(rounds.value > 10)){
         alert("Set the number of rounds between 1 - 10");
+        rounds.focus();
     }
     else{
         playGame.disabled = true;
@@ -126,7 +137,8 @@ function startGame(){
         loses = 0;
         numRounds = Number(rounds.value);
         roundsPlayed = 0;
-        score.innerHTML = `<label>Wins: </label>${wins} <label>Loses: </label>${loses} <label>Draws: </label>${draws}`;
+        score.innerHTML = `<label class="wins">Wins: ${wins}</label> <label class="loses">
+                Loses: ${loses}</label> <label class="draws">Draws: ${draws}</label>`;
         score.classList.add('scoreDiv');
         resultDiv.appendChild(score);
     }

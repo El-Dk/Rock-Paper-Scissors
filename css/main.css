@@ -1,8 +1,146 @@
-.choiceBtn{
+body{
+    background-color: #f3be2b;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    height: 90vh;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+}
+header{
+    display: flex;
+    background-color: #fcba03;
+    width: 100%;
+    margin: -10px -10px 0px -10px;
+    padding: 30px 30px 30px 30px;
+    flex: 0 1 auto;
+}
+h1{
+    margin: 20px auto 30px auto;
+    text-align: center;    
+    font-size: 40px;
+}
+main{
+    margin-top: 0px;
+    margin-bottom: 80px;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    justify-content: left;
+}
+#setDiv{
+    display: flex;
+    flex-direction: row;
     width: auto;
+    align-items: center;
+    justify-items: right;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+#roundsLabel{
+    display: flex;
+    font-size: 18px;
+    margin-right: 15px;
+}
+#rounds{
+    display: flex;
+    width: 50px;
+    text-align: center;
+    border: none;
+    font-size: 16px;
+}
+#playGame{
+    margin-left: 8em;
+    display: flex;
+    width: 108px;
+    height: 36px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    font-size: 18px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+    padding-top: 5px;
+    padding-bottom: 9px;
+}
+.choiceBtn{
+    padding: 10px auto 10px auto;
+    background-color: white;
     height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: 1px solid black;
+    box-shadow: 5px 5px black;
+    margin: auto 20px 20px 20px;
+}
+.choiceBtn:active{
+    background-color: black;
 }
 .choiceImg{
     width: auto;
-    height: 200px;
+    height: 100px;
+}
+#footer{
+    display: flex;
+    position: fixed;
+    flex: 0 1 auto;
+    justify-content: center;
+    align-items: center;
+    background-color: #fcba03;
+    width: 100%;
+    margin: -100px -10px 10px -10px;
+    padding: 30px 30px 30px 30px;
+    margin-bottom: -10px;
+    bottom: 0%;
+}
+#footer img{
+    height: 80px;
+}
+#gameResult button{
+    width: 108px;
+    height: 36px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    font-size: 18px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+    padding-top: 5px;
+    padding-bottom: 9px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#gameResult{
+    display: flex;
+    flex-direction: column;
+}
+#gameResult p{
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0px;
+}
+#gameResult p label{
+    margin-right: 20px;
+    margin-left: 30px;
+}
+#scoreDiv{
+    font-size: 25px;
+}
+.wins{
+    color: green;
+}
+.loses{
+    color: red;
+}
+.draws{
+    color: black;
+}
+.gameOver{
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    line-height: 40px;
 }
